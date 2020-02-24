@@ -411,6 +411,19 @@ export const removeGranule = (granuleId) => ({
   }
 });
 
+export const moveGranule = (granuleId, body) => ({
+  [CALL_API]: {
+    type: types.GRANULE_MOVE,
+    method: 'PUT',
+    id: granuleId,
+    path: `granules/${granuleId}`,
+    body: {
+      action: 'move',
+      destinations: body
+    }
+  }
+});
+
 export const bulkGranule = (payload) => ({
   [CALL_API]: {
     type: types.BULK_GRANULE,

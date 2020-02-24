@@ -191,6 +191,14 @@ class GranuleOverview extends React.Component {
       confirmAction: true,
       confirmText: `Reingest ${granuleId}? Note: the granule files will be overwritten.`
     }, {
+      text: 'Move Granule',
+      action: this.moveGranule,
+      status: get(this.props.granules.executed, [granuleId, 'status']),
+      success: this.fastReload,
+      confirmAction: true,
+      confirmText: `Execute on ${granuleId}?`,
+      confirmOptions: this.getExecuteOptions()
+    }, {
       text: 'Execute',
       action: this.applyWorkflow,
       status: get(this.props.granules.executed, [granuleId, 'status']),

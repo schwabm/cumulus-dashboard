@@ -31,9 +31,9 @@ describe('Dashboard Executions Page', () => {
 
       // shows a summary count of completed and failed executions
       cy.get('.overview-num__wrapper ul li')
-        .first().contains('li', '10 Completed')
-        .next().contains('li', '3 Failed')
-        .next().contains('li', '3 Running');
+        .first().contains('li', '4 Completed')
+        .next().contains('li', '1 Failed')
+        .next().contains('li', '1 Running');
     });
 
     it('should display the correct executions with Ids and status ', () => {

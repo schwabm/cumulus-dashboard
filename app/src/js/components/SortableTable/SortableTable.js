@@ -100,7 +100,7 @@ class Table extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {data.map((d, i) => {
+              {(data || []).map((d, i) => {
                 const dataId = typeof rowId === 'function' ? rowId(d) : d[rowId];
                 const checked = canSelect && selectedRows.indexOf(dataId) !== -1;
                 return (

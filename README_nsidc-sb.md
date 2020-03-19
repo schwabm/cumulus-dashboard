@@ -1,6 +1,11 @@
 This file contains instructions for standing up a local instance of
 cumulus-dashboard to talk to the NSIDC Sandbox instance of Cumulus.
 
+Note:
+If you have not used SSM (Secure? Session Manager) you will need to install the
+plug-in into your aws cli. This assumes you have the aws cli installed.
+https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html
+
 # Variables
 
 When following the steps below, these "variables" need to be substitued with
@@ -11,10 +16,20 @@ their actual values (i.e., you can't just set them as environment variables).
   choose the `${PREFIX}-archive` API, then click "Dashboard", and this text will
   be near the top of the screen: `Invoke this API at:
   https://${API_SUBDOMAIN}.execute-api.us-west-2.amazonaws.com/dev/`
+  
+  Using AWS CLI
+  > aws apigateway get-rest-apis  
+  Find '-archive' in ouput
+  
 * `INSTANCE_ID` - the ID of the EC2 instance named
   `${PREFIX}-CumulusECSCluster`, can be retrived from the [AWS Console, EC2
   Instances
   page](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:sort=instanceId).
+  
+  Using AWS CLI
+  > aws ec2 describe-instance 
+  Find 'CumulusECSCluster' and search for InstanceId assocaiated with it in the JSON output, it is listed above the first appearance of CumulusECSCluster as 'InstanceId'.
+  
 * `LOCAL_PORT` - port on your local machine to use for the tunnel to the EC2
   instance. Can be any valid open port. The important thing is to use the same
   port in steps 3 and 4.

@@ -1,6 +1,10 @@
 This file contains instructions for standing up a local instance of
 cumulus-dashboard to talk to the NSIDC Sandbox instance of Cumulus.
 
+Make sure your UAT (or appropriate mode) URS/EDL has been added to the deployment,
+or you will not be able to access the dashboard instance you envoke. Send it to
+Michael Brand for now.
+
 # Variables
 
 When following the steps below, these "variables" need to be substitued with

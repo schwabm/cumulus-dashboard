@@ -1,6 +1,14 @@
 This file contains instructions for standing up a local instance of
 cumulus-dashboard to talk to the NSIDC Sandbox instance of Cumulus.
 
+If you have not done so you will need to add the Session Manager (SSM)
+plugin to your aws cli utility. For help with this see:
+https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html
+
+Clone the dashboard repo branch for nsidc-sb for sandbox deployment:
+https://github.com/nsidc/cumulus-dashboard/tree/nsidc-sb  Or https://github.com/nsidc/cumulus-dashboard/ and find the appropriate branch under the 'branches' menu
+
+
 # Variables
 
 When following the steps below, these "variables" need to be substitued with
@@ -62,7 +70,12 @@ ssh -p ${LOCAL_PORT} -L 8000:${API_SUBDOMAIN}.execute-api.us-west-2.amazonaws.co
   such as `"while true; do echo 'awake nsidc-sb tunnel'; sleep 60 ; done"`
 * Add `-v` (or `-vv` or `-vvv`) to get some debugging output
 
+Note: you will not get a prompt. Leave this session running.
+
 ## 5. Start the dev server for the cumulus-dashboard. This can be done directly via `npm` commands, or it can be done with Docker.
+
+Navigate in your shell to the download of the cumulus dashboard branch.
+
 
 After starting the dev server with either of these options, source can be edited
 locally and webpack will restart the server.
@@ -74,6 +87,8 @@ following in a new shell.
 
 There are also instructions in `README.md` for running locally in Docker, but
 the instructions here are even simpler.
+
+Change directories to the clone of the dashboard branch if you haven't done so.
 
 Requirements:
 
